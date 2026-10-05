@@ -1,0 +1,23 @@
+{
+  "name": "despliegue01",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Laboratorio 8: aplicacion Node.js preparada para GitHub y Render",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch index.js --ext js index.js",
+    "start": "node index.js",
+    "check:syntax": "node --check index.js"
+  },
+  "engines": {
+    "node": ">=22 <27",
+    "yarn": "1.x"
+  },
+  "packageManager": "yarn@1.22.22",
+  "dependencies": {
+    "dotenv": "^18.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

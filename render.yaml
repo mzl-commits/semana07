@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: despliegue01
+    runtime: node
+    plan: free
+    branch: main
+    rootDir: despliegue01
+    buildCommand: yarn install --frozen-lockfile
+    startCommand: yarn start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
