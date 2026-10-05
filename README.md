@@ -3,6 +3,17 @@
 Proyecto **despliegue01**, preparado para GitHub y un Web Service en Render.
 Repositorio indicado: https://github.com/mzl-commits/semana07
 
+**Aplicación pública comprobada:** https://despliegue01-pab4.onrender.com
+
+**Estado del servidor:** https://despliegue01-pab4.onrender.com/health
+
+**Servicio en Render:** https://dashboard.render.com/web/srv-db225k4s728c73aq1uq0
+
+El servicio gratuito se creó usando **Public Git Repository**, con el repositorio
+indicado y la rama `main`. Para publicar nuevos cambios, usa **Manual Deploy > Deploy
+latest commit** en Render. La integración automática con GitHub requiere conectar
+la cuenta propietaria del repositorio o usar la opción de Blueprint correspondiente.
+
 Se desarrolla la parte de laboratorio descrita en las instrucciones: una aplicación
 Node.js sencilla, Yarn, Nodemon, dotenv, Git y preparación para Render. El documento
 no solicita implementar endpoints JWT en esta parte; el proyecto no incluye autenticación.
@@ -25,6 +36,9 @@ semana8/                         # Raíz del repositorio Git; rama main
     ├── .env                    # Solo local; ignorado por Git
     └── node_modules/           # Solo local; ignorado por Git
 ```
+
+La carpeta local `evidencias/`, también ignorada por Git, contiene capturas del
+despliegue y de la aplicación pública.
 
 ## 1. Aplicación Node.js
 
@@ -213,4 +227,5 @@ Toma estas capturas para el informe, en este orden:
 13. **URL pública:** navegador con la URL de Render visible y la página funcionando.
 14. **Logs de Render:** salida de instalación, `yarn start` y el mensaje de inicio sin errores.
 
-No presentes las capturas 10–14 como realizadas hasta completar y comprobar esos pasos.
+GitHub y el primer despliegue en Render ya se completaron y comprobaron. Usa las
+capturas guardadas en `evidencias/` como apoyo y toma las restantes de esta lista.

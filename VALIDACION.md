@@ -37,9 +37,26 @@ y `git ls-remote origin refs/heads/main`, y se leyó `despliegue01/index.js`
 directamente desde GitHub. `.env` y `node_modules` no están versionados.
 La actualización de este registro se guarda en un commit posterior.
 
-Render mostró la pantalla de inicio de sesión al consultar el panel. No se ha
-creado un servicio ni verificado una URL pública o logs de Render. Para completar
-estos pasos se necesita una sesión de Render con acceso al repositorio. La
-configuración exacta y las capturas requeridas están en `README.md`.
+Tras iniciar sesión, se creó un Web Service **Free** en Render usando **Public Git
+Repository** con `mzl-commits/semana07`, rama `main` y Root Directory `despliegue01`.
 
-No confundir las pruebas locales satisfactorias con un despliegue público completado.
+| Comprobación en Render | Resultado |
+| --- | --- |
+| Servicio | `despliegue01`; `srv-db225k4s728c73aq1uq0` |
+| Primer deploy | `dep-db225kks728c73aq20d0`, commit `b2fbf91`; **Deploy succeeded** |
+| Fecha del primer deploy | 5 de octubre de 2026, 17:21 (America/Lima) |
+| Node.js | 24.21.0, leído desde `.node-version` |
+| Yarn | 1.22.22 |
+| Build | `yarn install --frozen-lockfile`; **Build successful** |
+| Inicio | `yarn start`, `node index.js`; puerto asignado 10000 |
+| URL pública | https://despliegue01-pab4.onrender.com; HTTP 200 y página comprobada en navegador |
+| Health check | https://despliegue01-pab4.onrender.com/health; `status: ok`, `application: despliegue01` |
+| Logs | Sin errores de instalación o ejecución; **Your service is live** |
+
+Los logs incluyen el aviso de que Render no tiene credenciales para el repositorio;
+el clonado público y el despliegue fueron correctos. Al usar la conexión pública,
+los siguientes despliegues se pueden iniciar con **Manual Deploy > Deploy latest commit**.
+
+Panel del deploy: https://dashboard.render.com/web/srv-db225k4s728c73aq1uq0/deploys/dep-db225kks728c73aq20d0
+
+Las capturas del resultado están en la carpeta local `evidencias/`, ignorada por Git.
