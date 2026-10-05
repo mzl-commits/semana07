@@ -31,8 +31,11 @@ superior sin licencia no proviene de este proyecto y no impide su ejecución.
 
 ## GitHub y Render
 
-La publicación en GitHub se verifica después de crear el commit mediante la
-coincidencia entre `git rev-parse HEAD` y `git ls-remote origin refs/heads/main`.
+Publicación en GitHub completada. El commit `d92d412` (`Listo para ir a GitHub`)
+se subió a `origin/main`; se verificó la coincidencia entre `git rev-parse HEAD`
+y `git ls-remote origin refs/heads/main`, y se leyó `despliegue01/index.js`
+directamente desde GitHub. `.env` y `node_modules` no están versionados.
+La actualización de este registro se guarda en un commit posterior.
 
 Render mostró la pantalla de inicio de sesión al consultar el panel. No se ha
 creado un servicio ni verificado una URL pública o logs de Render. Para completar
