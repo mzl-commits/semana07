@@ -1,0 +1,36 @@
+# Alternativa reproducible: Blueprint para un despliegue nuevo del login.
+# Los servicios creados manualmente ya se administran en su panel de Render.
+databases:
+  - name: semana7-login-db
+    plan: free
+    region: virginia
+    databaseName: laboratorio_jwt
+    user: jwt_app
+services:
+  - type: web
+    name: semana7-login
+    runtime: node
+    plan: free
+    region: virginia
+    branch: main
+    rootDir: login-jwt
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: semana7-login-db
+          property: connectionString
+      - key: DB_SSL
+        value: "false"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 30s
+      - key: SEED_DEMO
+        value: "true"
+      - key: DEMO_PASSWORD
+        generateValue: true

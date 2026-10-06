@@ -1,0 +1,31 @@
+{
+  "name": "laboratorio-07-jwt",
+  "version": "1.0.0",
+  "description": "API REST con autenticacion JWT y roles",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build": "npm --prefix tarea ci --include=dev && npm --prefix tarea run build",
+    "check:syntax": "node --check server.js",
+    "db:check": "node scripts/database-check.js",
+    "test:integration": "node scripts/verify-api.js"
+  },
+  "engines": {
+    "node": ">=22 <27"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "pg": "^8.23.1",
+    "sequelize": "^6.37.7"
+  },
+  "overrides": {
+    "uuid": "11.1.1"
+  }
+}
