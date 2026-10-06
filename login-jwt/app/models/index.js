@@ -5,8 +5,7 @@ import defineRole from "./role.model.js";
 import defineRefreshToken from "./refreshToken.model.js";
 
 const options = {
-  host: dbConfig.HOST,
-  port: dbConfig.PORT,
+  ...(dbConfig.url ? {} : { host: dbConfig.HOST, port: dbConfig.PORT }),
   dialect: dbConfig.dialect,
   pool: dbConfig.pool,
   logging: false,
