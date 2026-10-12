@@ -4,6 +4,15 @@ Version preparada desde `usnayo/smeana07`; se conserva el frontend y su CSS orig
 Esta carpeta se publica en `mzl-commits/semana07`, rama `main`, junto al laboratorio
 `despliegue01`. El registro de pruebas y la URL final estan en `VALIDACION.md`.
 
+**Aplicacion desplegada y comprobada:** https://semana7-login.onrender.com
+
+**Estado del backend y PostgreSQL:** https://semana7-login.onrender.com/health
+
+**Panel de Render:** https://dashboard.render.com/web/srv-db65mvt9fdbs73etehsg
+
+Las cuentas son `demo_user`, `demo_moderator` y `demo_admin`. Su contraseña se
+encuentra en el archivo local `evidencias/credenciales-demo.txt`, ignorado por Git.
+
 ## Revision del proyecto existente
 
 | Elemento | Tecnologia / archivo |

@@ -1,6 +1,7 @@
 # Validacion real de la tarea
 
-Fecha: 5 de octubre de 2026 (America/Lima).
+Preparacion local: 5 de octubre de 2026. Despliegue publico: 11 de octubre de 2026
+(America/Lima).
 
 ## Comprobaciones completadas
 
@@ -34,14 +35,32 @@ Evidencias locales: `evidencias/login-local.png` y `evidencias/base-render.png`.
 Las credenciales de las cuentas demo estan en `evidencias/credenciales-demo.txt`,
 un archivo local ignorado por Git que no debe publicarse ni mostrarse en capturas.
 
-## Pasos pendientes
+## Despliegue publico completado el 11 de octubre
 
-- Guardar las variables privadas de conexion, JWT y cuentas demo en Render:
-  requiere autorizacion especifica tras el rechazo de revision automatica.
-- Crear/iniciar el Web Service, comprobar PostgreSQL desde el backend y verificar
-  la URL publica, CSS, JS, registro, login, roles, renovacion y logs.
-- Registrar aqui la URL publica, pruebas en Render y capturas del deploy final.
+- Variables privadas guardadas al reanudar el despliegue: conexion interna de
+  PostgreSQL, clave JWT y contraseña demo. Ninguna se incluyo en GitHub.
+- Servicio **semana7-login**, Node, Free, Virginia; identificador
+  `srv-db65mvt9fdbs73etehsg`.
+- Root Directory: `login-jwt`; Build Command: `npm ci && npm run build`;
+  Start Command: `npm start`; Health Check: `/health`.
+- Primer deploy `dep-db65n059fdbs73etejkg`, commit `c596b3e`: **Deploy succeeded | Live**.
+- Logs: tablas `users`, `roles`, `refreshTokens`, `user_roles`; cuentas demo
+  inicializadas; base conectada (`postgres`); servidor en puerto asignado `10000`.
+- URL publica: https://semana7-login.onrender.com
+- `npm run test:integration` contra la URL publica: **38 solicitudes correctas**.
+  Incluye registro 201, duplicados 409, login 200, token ausente 401, usuario sin
+  permiso admin 403, roles respectivos, renovacion 200 y refresh revocado 403.
+- En el navegador publico se verificaron login, restauracion de sesion al recargar
+  `/user` y el boton Cargar contenido devolviendo **User Content.**
+- El frontend conserva el CSS original y carga sus archivos CSS y JavaScript.
+- Una advertencia nueva de npm en el primer build identifico `source-map-js`
+  1.2.1. Se actualizo exclusivamente a 1.2.2: `npm audit` del frontend reporta
+  **cero vulnerabilidades**, y se verifico una nueva construccion correcta.
 
-No se trasladaron datos privados de la base anterior. Las claves no se incluyen
-en Git. La revision automatica rechazo la posible importacion de `.env` en Render
-porque la autorizacion de despliegue no especificaba el envio de sus secretos.
+Las cuentas de demostracion usan correos `example.com`; no se trasladaron datos
+privados de la base anterior. El servicio mantiene sus datos en PostgreSQL aunque
+el backend se reinicie. La base gratuita caduca el **4 de noviembre de 2026**.
+
+Las capturas publicas se guardan localmente en `evidencias/`. El informe y el guion
+estan en `INFORME-Y-VIDEO.md`. Para nuevos cambios se utiliza **Manual Deploy >
+Deploy latest commit**; la conexion del repositorio es publica.
