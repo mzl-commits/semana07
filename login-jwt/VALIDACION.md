@@ -57,6 +57,25 @@ un archivo local ignorado por Git que no debe publicarse ni mostrarse en captura
   1.2.1. Se actualizo exclusivamente a 1.2.2: `npm audit` del frontend reporta
   **cero vulnerabilidades**, y se verifico una nueva construccion correcta.
 
+### Verificacion de la version final
+
+- Commit desplegado: `eb8af76`; deploy `dep-db65ph942hec73b0pjg0`, 11 de octubre,
+  23:06 (America/Lima); **Deploy succeeded | Live**, duracion 32,5 segundos.
+- Los logs finales reportan cero vulnerabilidades en ambas instalaciones, build
+  exitoso, cuatro tablas, cuentas demo y conexion PostgreSQL correcta.
+- Consulta directa a PostgreSQL externo con TLS: conexion correcta, cuatro tablas,
+  tres roles y las tres cuentas demo con sus roles respectivos.
+- `/health`: HTTP 200, `status: ok`, `database: connected`, `dialect: postgres`.
+- Recursos `/assets/index-CfJd6XKh.js` y `/assets/index-6EdqRStE.css`: HTTP 200.
+- Tras el nuevo deploy se recargo `/user`: se restauro la sesion y Cargar contenido
+  devolvio **User Content.**, comprobando persistencia en la base alojada.
+- Revision final del backend con `npm audit --omit=dev`: cero vulnerabilidades.
+- Capturas: `evidencias/login-publico.png`, `evidencias/render-deploy-final.png`
+  y `evidencias/render-logs-final.png`; ignoradas por Git.
+
+La actualizacion posterior de este registro solo modifica documentacion; el codigo
+verificado corresponde al commit desplegado indicado arriba.
+
 Las cuentas de demostracion usan correos `example.com`; no se trasladaron datos
 privados de la base anterior. El servicio mantiene sus datos en PostgreSQL aunque
 el backend se reinicie. La base gratuita caduca el **4 de noviembre de 2026**.
